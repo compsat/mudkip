@@ -1,12 +1,12 @@
 <?php
 
 require("db_connection.php");
+require("functions.php");
 
-//$cityID = $_REQUEST['cityID'];
-$cityID = 3;
+$cityID = intval($_SESSION['city']);
 $description = $_REQUEST['description'];
 
-$edit = "UPDATE place SET description = '$description' WHERE '$cityID' = place_ID";
+$edit = "UPDATE place SET description = '$description' WHERE  place_ID=$cityID";
 
 try{
 	$result = $db->prepare($edit)->execute();

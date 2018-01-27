@@ -9,6 +9,7 @@ $(document).ready(function(){
 
    $("#editToggle").click(function (){
          $("#modalTitle").html("Description");
+         $("#d-input").html($("#d-content").html());
          $("#submit").html("Edit");
          modalToggle();
    });

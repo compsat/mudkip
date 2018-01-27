@@ -52,9 +52,11 @@
       <h3>Profile</h3>
       <?php
         require("db_connection.php");
-        $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
+        require("functions.php");
+        $cityID = intval($_SESSION['city']);
+        $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = $cityID")->fetchAll(PDO::FETCH_ASSOC)[0];
         echo "<h5>" . $data["place_name"] . "</h5>";
-        echo "<p>" . $data["description"] . "</p>";
+        echo "<p id='d-content'>" . $data["description"] . "</p>";
       ?>
           <a id="editToggle" class="button button-primary">Edit</a>
     </div>
@@ -67,18 +69,7 @@
           <h2 id="close" class="close-btn u-pull-right">&times;</h2>
           <h3 id="modalTitle">Title</h3>
           <form action="editDescription.php" method="post">
-            <label>
-              <?php
-              require("db_connection.php");
-              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
-              echo $data["place_name"];
-              ?>
-            </label>
-            <textarea name="description" class="twelve columns"><?php
-              require("db_connection.php");
-              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
-              echo $data["description"];
-              ?></textarea>
+            <textarea id="d-input" name="description" class="twelve columns"></textarea>
             <button class="button-primary" id="submit"></button>
           </form>
         </div>

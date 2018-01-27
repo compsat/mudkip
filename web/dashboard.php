@@ -55,7 +55,8 @@
             <h3>Profile</h3>
             <?php
               require("db_connection.php");
-              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
+              $cityID = intval($_SESSION['city']);
+              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = $cityID")->fetchAll(PDO::FETCH_ASSOC)[0];
               echo "<h5>" . $data["place_name"] . "</h5>";
               echo "<p>" . $data["description"] . "</p>";
             ?>
