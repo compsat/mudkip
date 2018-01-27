@@ -53,8 +53,12 @@
         <div class="twelve columns padding">
           <div>
             <h3>Profile</h3>
-            <h5>Area Name</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis massa ac eros cursus, nec mollis massa efficitur. Vestibulum iaculis tellus eu massa mollis dictum. Proin sodales augue vel ex porta iaculis. Aenean quis lorem sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vitae rutrum dolor. Cras finibus semper lacinia. Curabitur facilisis nisi sit amet ligula porttitor porttitor. </p>
+            <?php
+              require("db_connection.php");
+              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
+              echo "<h5>" . $data["place_name"] . "</h5>";
+              echo "<p>" . $data["description"] . "</p>";
+            ?>
             <form action="description.php">
               <button type="submit">Edit</button>
             </form>
