@@ -1,11 +1,21 @@
 package com.mudkip.lakbay;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -22,26 +32,46 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        String dataUrl = "http://10.101.1.138/hey.php";
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        LocationHandler.initialize(this);
 
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(dataUrl)
-                .build();
+        //get stop data here; tas on response yung after this
+        Stop[] stops = {new Stop("wll", 21.3123, 12.21321),
+                new Stop("wasd", 12.3123, 21.21321),
+                new Stop("wasd", 12.3123, 21.21321),
+                new Stop("wasd", 12.3123, 21.21321),
+                new Stop("wasd", 12.3123, 21.21321),
+                new Stop("wasd", 12.3123, 21.21321)
+        };
 
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("meh", "rekt");
-            }
+        StopAdapter stopAdapter = new StopAdapter(this, stops);
+        recyclerView.setAdapter(stopAdapter);
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String jsonData = response.body().string();
-                Log.e("meh", jsonData);
-            }
-        });
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setHasFixedSize(true);
+
+//        String dataUrl = "http://10.101.1.138/hey.php";
+//
+//        OkHttpClient client = new OkHttpClient();
+//        Request request = new Request.Builder()
+//                .url(dataUrl)
+//                .build();
+//
+//        Call call = client.newCall(request);
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                Log.e("meh", "rekt");
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                String jsonData = response.body().string();
+//                Log.e("meh", jsonData);
+//            }
+//        });
     }
 
     private boolean isNetworkAvailable() {
