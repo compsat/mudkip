@@ -22,7 +22,7 @@
             app:srcCompat="@drawable/hamburger"/>
 
         <ImageView
-            android:id="@+id/backgroundImageView"
+            android:id="@+id/manila"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/manila"/>
@@ -37,6 +37,54 @@
             android:layout_marginStart="20dp"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/area_menu"/>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="440dp"
+            android:layout_marginStart="35dp"
+            android:text="Location"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_below="@+id/location"
+            android:text="10 km"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/questMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/distance"
+            android:text="QUESTS"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/stopMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/distance"
+            android:text="STOPS"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/infoMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="275dp"
+            android:layout_below="@+id/distance"
+            android:text="INFO"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 </FrameLayout>
