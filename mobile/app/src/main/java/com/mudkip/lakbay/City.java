@@ -7,17 +7,17 @@ import android.support.annotation.NonNull;
  */
 
 public class City implements Comparable<City> {
-    private String mName;
+    private String mName, mDescription;
     private double mLatitude, mLongitude;
     private int mId;
 
-    public City(int id, String name, double latitude, double longitude) {
-        mId = id;
+    public City(int id, String name, String description, double latitude, double longitude) {
         mName = name;
+        mDescription = description;
         mLatitude = latitude;
         mLongitude = longitude;
+        mId = id;
     }
-
     public String getName() {
         return mName;
     }
@@ -48,6 +48,14 @@ public class City implements Comparable<City> {
 
     public void setId(int id) {
         mId = id;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
     }
 
     @Override

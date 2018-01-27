@@ -30,7 +30,7 @@
         android:layout_alignBottom="@+id/numStopsLabelTextView"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/numStopsLabelTextView"
-        android:text="asdawe"
+        android:text=""
         android:textSize="14sp"/>
 
     <TextView
@@ -50,6 +50,6 @@
         android:layout_alignBottom="@+id/tagsLabelTextView"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/tagsLabelTextView"
-        android:text="asdawe"
+        android:text=""
         android:textSize="14sp"/>
 </RelativeLayout>
