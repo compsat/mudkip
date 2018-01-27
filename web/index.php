@@ -26,7 +26,6 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
-
 </head>
 <body>
 
@@ -37,7 +36,7 @@
       <div class="eight columns no_float">
         <h1>Lakbay</h1>
         <hr>
-        <form action="dashboard.html" method="post">
+        <form action="login.php" method="post">
           <input type="text" name="username" class="twelve columns" placeholder="Username">
           <input type="text" name="password" class="twelve columns" placeholder="Password">
           <button type="submit" class="button-primary u-pull-right">Log In</button>
