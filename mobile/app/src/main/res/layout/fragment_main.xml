@@ -155,8 +155,10 @@
             android:id="@+id/popupRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignBottom="@id/areaSubmenu"
             android:layout_alignEnd="@id/line"
             android:layout_below="@+id/line"
+            android:layout_marginBottom="15dp"
             android:layout_marginStart="55dp"
             android:layout_marginTop="5dp"
             android:visibility="gone"/>
