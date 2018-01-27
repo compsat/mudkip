@@ -32,6 +32,12 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+  <!-- php insert
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <?php 
+    require("db_connection.php");
+    require("functions.php");
+  ?>
 </head>
 <body>
 
@@ -87,9 +93,16 @@
 
             <label for="stops">Add Stop</label>
             <select id="stop" class="twelve columns">
-              <option value="1">mouth</option>
-              <option value="2">wide</option>
-              <option value="3">hoe-pen</option>
+              <?php
+                $city_id = intval($_SESSION['city']);
+                $stops = $db->query("SELECT stop_ID FROM stop WHERE city_ID=$city_id")->fetchAll(PDO::FETCH_ASSOC);
+                $rand;
+                foreach($stops as $stop){
+                  $stop_id = intval($stop['stop_ID']);
+                  $stop_name = $db->query("SELECT place_name FROM place WHERE place_ID=$stop_id")->fetchAll(PDO::FETCH_ASSOC)[0]['place_name'];
+                  echo "<option value='$stop_id'>$stop_name</option>";
+                }
+              ?>
             </select>
             <a id="addStop" class="twelve columns button">add stop</a>
 
