@@ -105,5 +105,18 @@
             android:layout_marginEnd="15dp"
             android:src="@drawable/front"/>
 
+        <ImageView
+            android:id="@+id/areaSubmenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/textBackgroundImageView"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/hamburgerImageView"
+            android:layout_margin="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/area_submenu"
+            android:visibility="invisible"/>
+
     </RelativeLayout>
 </FrameLayout>
