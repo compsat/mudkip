@@ -19,12 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".ProfileActivity"></activity>
-=======
         <activity android:name=".Main2Activity">
         </activity>
->>>>>>> e289772a3b036d9973ecea8592e5b865e45f331e
     </application>
 
 </manifest>
