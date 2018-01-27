@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Dashboard</title>
+  <title>Description</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -23,16 +23,15 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/general.css">
 
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/general.js"></script>
+
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
-
-  <!-- PHP Functions
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <?php
-    require("functions.php");
-  ?>
 </head>
 <body>
 
@@ -46,32 +45,50 @@
   <div class="container content-margin">
     <div class="row">
       <div class="twelve columns header">
-        <h1>Dashboard</h1>
+        <h1>Description</h1>
       </div>
     </div>
-    <div class="row content">
-        <div class="twelve columns padding">
-          <div>
-            <h3>Profile</h3>
+    <div class="row content padding with-table">
+      <a id="addToggle" class=" button button-primary">Add</a>
+      <h3>Profile</h3>
             <h5>Area Name</h6>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis massa ac eros cursus, nec mollis massa efficitur. Vestibulum iaculis tellus eu massa mollis dictum. Proin sodales augue vel ex porta iaculis. Aenean quis lorem sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vitae rutrum dolor. Cras finibus semper lacinia. Curabitur facilisis nisi sit amet ligula porttitor porttitor. </p>
-            <form action="description.php">
-              <button type="submit">Edit</button>
-            </form>
-          </div>
+    </div>
+  </div>
 
-          <div>
-            <h3><a href="quests.php">Quests</a></h3>
-            <button>Add</button>
-          </div>
+  <div id="modal" class="modal">
+    <div class="container">
+      <div class="row modal-content">
+        <div class="eight columns content padding no_float" style="margin:auto">
+          <h2 id="close" class="close-btn u-pull-right">&times;</h2>
+          <h3 id="modalTitle">Title</h3>
+          <form>
+            <label for="stop_name">Quest Name</label>
+            <input type="text" name="stop_name" class="twelve columns">
 
-          <div>
-            <h3><a href="stops.php">Stops</a></h3>
-            <form action="newStop.php" method="post">
-              <button type="submit">Add</button>
-            </form>
-          </div>
+            <table id="quest_stops" class="twelve columns">
+              <thead>
+                <th>Index</th>
+                <th>Stop</th>
+              </thead>
+
+              <tr id="no_stop">
+                <td class="center" colspan="1000">None Selected</td>
+              </tr>
+            </table>
+
+            <label for="stops">Add Stop</label>
+            <select id="stop" class="twelve columns">
+              <option value="1">mouth</option>
+              <option value="2">wide</option>
+              <option value="3">hoe-pen</option>
+            </select>
+            <a id="addStop" class="twelve columns button">add stop</a>
+
+            <button class="button-primary" id="submit"></button>
+          </form>
         </div>
+      </div>
     </div>
   </div>
 <!-- End Document
