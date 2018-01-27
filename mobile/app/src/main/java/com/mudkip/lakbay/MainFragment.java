@@ -1,13 +1,16 @@
 package com.mudkip.lakbay;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,17 +20,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainFragment extends Fragment {
     public static final String DOMAIN = "http://10.100.65.41/";
     private City[] mCities;
+    private Stop[] mStops;
+    private Quest[] mQuests;
     private ImageView mCityImageView, mLeftImageView, mRightImageView;
     private TextView mLocationTextView, mDistanceTextView, mQuestButton, mStopButton, mInfoButton;
 
@@ -102,16 +110,14 @@ public class MainFragment extends Fragment {
                 mAreaSubmenu.setVisibility(View.VISIBLE);
                 mMenuPopupLabel.setVisibility(View.VISIBLE);
                 mLine.setVisibility(View.VISIBLE);
+                clearRecylerView();
                 mRecyclerView.setVisibility(View.VISIBLE);
                 mPopupTextView.setVisibility(View.GONE);
                 mMenuPopupLabel.setText("QUESTS");
                 mExit.setVisibility(View.VISIBLE);
                 mLeftImageView.setClickable(false);
                 mRightImageView.setClickable(false);
-
-
-
-
+                getAndShowQuests();
             }
         });
 
@@ -121,12 +127,14 @@ public class MainFragment extends Fragment {
                 mAreaSubmenu.setVisibility(View.VISIBLE);
                 mMenuPopupLabel.setVisibility(View.VISIBLE);
                 mLine.setVisibility(View.VISIBLE);
+                clearRecylerView();
                 mRecyclerView.setVisibility(View.VISIBLE);
                 mPopupTextView.setVisibility(View.GONE);
                 mMenuPopupLabel.setText("STOPS");
                 mExit.setVisibility(View.VISIBLE);
                 mLeftImageView.setClickable(false);
                 mRightImageView.setClickable(false);
+                getAndShowStops();
             }
         });
 
@@ -168,7 +176,7 @@ public class MainFragment extends Fragment {
 
         City city = mCities[mCurrentlyShown];
 
-        if (city.getName().equals("Manila"))
+        if (city.getName().equals("Manila City"))
             mCityImageView.setImageResource(R.drawable.manila);
         else
             mCityImageView.setImageResource(R.drawable.other_city);
@@ -179,6 +187,7 @@ public class MainFragment extends Fragment {
         else
             mDistanceTextView.setText("");
     }
+
 
     private void cityOverview() {
         final String dataUrl = DOMAIN + "city_overview.php";
@@ -225,5 +234,139 @@ public class MainFragment extends Fragment {
                 });
             }
         });
+    }
+
+    private void getAndShowStops() {
+        final String url = DOMAIN + "stops_in_city.php";
+
+        final OkHttpClient client = new OkHttpClient();
+        FormBody.Builder formBuilder = new FormBody.Builder()
+                .add("city_ID", mCities[mCurrentlyShown].getId() + "");
+
+        RequestBody formBody = formBuilder.build();
+        Request.Builder requestBuilder = new Request.Builder();
+        final Request request = requestBuilder
+                .url(url)
+                .post(formBody)
+                .build();
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                try {
+                    Response response = client.newCall(request).execute();
+
+                    if (response.isSuccessful()) {
+                        JSONArray array = new JSONArray(response.body().string());
+                        mStops = new Stop[array.length()];
+
+                        for(int i = 0; i < array.length(); i++) {
+                            JSONObject obj = array.getJSONObject(i);
+                            mStops[i] = new Stop(obj.getInt("stop_ID"),
+                                    obj.getString("place_name"),
+                                    obj.getString("description"),
+                                    obj.getDouble("latitude"),
+                                    obj.getDouble("longitude"));
+                        }
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                StopAdapter stopAdapter = new StopAdapter(getActivity(), mStops);
+
+                                mRecyclerView.setAdapter(stopAdapter);
+
+                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                                mRecyclerView.setLayoutManager(layoutManager);
+
+                                mRecyclerView.setHasFixedSize(true);
+                            }
+                        });
+                        Log.e("yay", "");
+                    }
+                    else {
+                        Log.e("yay", "well");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+        }.execute();
+    }
+
+    private void getAndShowQuests() {
+        final String url = DOMAIN + "quests_in_city.php";
+
+        final OkHttpClient client = new OkHttpClient();
+        FormBody.Builder formBuilder = new FormBody.Builder()
+                .add("city_ID", mCities[mCurrentlyShown].getId() + "");
+
+        RequestBody formBody = formBuilder.build();
+        Request.Builder requestBuilder = new Request.Builder();
+        final Request request = requestBuilder
+                .url(url)
+                .post(formBody)
+                .build();
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                try {
+                    Response response = client.newCall(request).execute();
+
+                    if (response.isSuccessful()) {
+                        String s = response.body().string();
+                        Log.e("yay", s);
+                        JSONArray array = new JSONArray(s);
+                        mQuests = new Quest[array.length()];
+
+                        for(int i = 0; i < array.length(); i++) {
+                            JSONObject obj = array.getJSONObject(i);
+                            mQuests[i] = new Quest(obj.getInt("x"),
+                                    obj.getString("quest_name"),
+                                    obj.getInt("y"),
+                                    obj.getInt("points"),
+                                    new ArrayList<String>());
+                        }
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                QuestAdapter questAdapter = new QuestAdapter(getActivity(), mQuests);
+                                mRecyclerView.setAdapter(questAdapter);
+
+                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                                mRecyclerView.setLayoutManager(layoutManager);
+
+                                mRecyclerView.setHasFixedSize(true);
+                            }
+                        });
+                    }
+                    else {
+                        Log.e("yay", "well");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+        }.execute();
+    }
+
+    private void clearRecylerView() {
+        if(mRecyclerView == null || mRecyclerView.getAdapter() == null)
+            return;
+        if(mStops != null)
+            mStops = new Stop[0];
+        if(mQuests != null)
+            mQuests= new Quest[0];
+        mRecyclerView.getAdapter().notifyDataSetChanged();
     }
 }
