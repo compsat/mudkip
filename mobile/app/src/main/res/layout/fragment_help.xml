@@ -39,6 +39,66 @@
             android:text="FAQS"
             android:textSize="35sp" />
 
+        <TextView
+            android:id="@+id/first"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/faqsText"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="55dp"
+            android:text="What is the goal of the game?"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/firstAnswer"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="60dp"
+            android:text="To travel the country, see the different beautiful places it has for you, as well as help your fellow countrymen in the process."
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/second"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstAnswer"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="55dp"
+            android:text="How can I help?"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/secondAnswer"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/second"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="60dp"
+            android:text="By going around and finishing the different goals, you learn about the culture of the city/province you visited. You may also help their local economy by visiting the different local businesses present."
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/third"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/secondAnswer"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="55dp"
+            android:text="I have a problem!"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/thirdAnswer"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/third"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="60dp"
+            android:text="Oh no! Send us a message at support@lakbay.ph and we'll help you as soon as possible!"
+            android:textSize="15sp" />
+
     </RelativeLayout>
 
 

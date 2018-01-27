@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mudkip.lakbay.MainFragment">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        tools:context="com.mudkip.lakbay.MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/menu_frame" />
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/menu_close" />
+        <TextView
+            android:id="@+id/NameStopText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/exit"
+            android:text="Name of Stop"
+            android:textSize="30sp"/>
+        <View
+            android:id="@+id/line"
+            android:layout_width="270dp"
+            android:layout_height="1dp"
+            android:layout_below="@+id/NameStopText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="#ababab"/>
+        <TextView
+            android:id="@+id/descriptionStopText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:text="Lorem ipsum long description of the place goes here. Lorem ipsum long description of the place goes here. "
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="160dp"
+            android:text="Visit!"
+            android:enabled="false"/>
+
+
+    </RelativeLayout>
+</FrameLayout>
