@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
@@ -22,7 +23,7 @@
             app:srcCompat="@drawable/hamburger"/>
 
         <ImageView
-            android:id="@+id/manila"
+            android:id="@+id/cityImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/manila"/>
@@ -42,49 +43,67 @@
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="450dp"
             android:layout_marginStart="35dp"
+            android:layout_marginTop="450dp"
             android:text="Location"
-            android:textSize="25sp" />
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
             android:layout_below="@+id/location"
+            android:layout_marginStart="35dp"
             android:text="10 km"
-            android:textSize="15sp" />
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/questMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/distance"
             android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/distance"
             android:text="QUESTS"
-            android:textSize="15sp" />
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/stopMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/distance"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:text="STOPS"
-            android:textSize="15sp" />
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/infoMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="275dp"
             android:layout_below="@+id/distance"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="10dp"
             android:text="INFO"
-            android:textSize="15sp" />
+            android:textSize="15sp"/>
+
+        <ImageView
+            android:id="@+id/leftButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/back"/>
+
+        <ImageView
+            android:id="@+id/rightButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/front"/>
 
     </RelativeLayout>
 </FrameLayout>

@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         mFragmentTransaction = getSupportFragmentManager().beginTransaction();
         mFragmentTransaction.replace(R.id.content, mMainFragment);
         mFragmentTransaction.commit();
+
+        LocationHandler.initialize(this);
     }
 
     public void changeToProfile(){
