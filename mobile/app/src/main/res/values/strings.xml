@@ -2,5 +2,11 @@
     <string name="app_name">Lakbay</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_prompt">Sort by</string>
+    <string-array name="sort_array">
+        <item>None</item>
+        <item>Most completed</item>
+        <item>Location</item>
+        <item>Type</item>
+    </string-array>
 </resources>

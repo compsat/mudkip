@@ -31,12 +31,84 @@
 
         <TextView
             android:id="@+id/stopsText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
             android:text="STOPS"
             android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="55dp"
+            android:layout_below="@+id/stopsText"
+            android:text="Completed"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/completedline"
+            android:layout_width="270dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/completed"
+            android:background="#ababab" />
+
+        <TextView
+            android:id="@+id/listCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="55dp"
+            android:layout_below="@+id/completedline"
+            android:text="lorem ipsum"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="55dp"
+            android:layout_below="@+id/listCompleted"
+            android:text="Available"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/availableline"
+            android:layout_width="270dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/available"
+            android:background="#ababab" />
+
+        <TextView
+            android:id="@+id/listAvailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="55dp"
+            android:layout_below="@+id/availableline"
+            android:text="lorem ipsum"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/availableline"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:textColor="#ababab"
+            android:entries="@array/sort_array"
+            android:prompt="@string/sort_prompt" />
 
     </RelativeLayout>
 
