@@ -8,9 +8,18 @@ import java.util.ArrayList;
 
 public class Quest {
 
+    private int mId;
     private String mName;
-    private int mNumStops;
+    private int mNumStops, mPoints;
     private ArrayList<String> mTags;
+
+    public Quest(int id, String name, int numStops, int points, ArrayList<String> tags) {
+        mId = id;
+        mName = name;
+        mNumStops = numStops;
+        mPoints = points;
+        mTags = tags;
+    }
 
     public Quest(String name, int numStops, ArrayList<String> tags) {
         mName = name;
@@ -40,5 +49,21 @@ public class Quest {
 
     public void setTags(ArrayList<String> tags) {
         mTags = tags;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
+    }
+
+    public int getPoints() {
+        return mPoints;
+    }
+
+    public void setPoints(int points) {
+        mPoints = points;
     }
 }
