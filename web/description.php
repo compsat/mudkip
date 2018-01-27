@@ -49,10 +49,14 @@
       </div>
     </div>
     <div class="row content padding with-table">
-      <a id="addToggle" class=" button button-primary">Add</a>
       <h3>Profile</h3>
-            <h5>Area Name</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis massa ac eros cursus, nec mollis massa efficitur. Vestibulum iaculis tellus eu massa mollis dictum. Proin sodales augue vel ex porta iaculis. Aenean quis lorem sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi vitae rutrum dolor. Cras finibus semper lacinia. Curabitur facilisis nisi sit amet ligula porttitor porttitor. </p>
+      <?php
+        require("db_connection.php");
+        $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
+        echo "<h5>" . $data["place_name"] . "</h5>";
+        echo "<p>" . $data["description"] . "</p>";
+      ?>
+          <a id="editToggle" class="button button-primary">Edit</a>
     </div>
   </div>
 
@@ -62,29 +66,19 @@
         <div class="eight columns content padding no_float" style="margin:auto">
           <h2 id="close" class="close-btn u-pull-right">&times;</h2>
           <h3 id="modalTitle">Title</h3>
-          <form>
-            <label for="stop_name">Quest Name</label>
-            <input type="text" name="stop_name" class="twelve columns">
-
-            <table id="quest_stops" class="twelve columns">
-              <thead>
-                <th>Index</th>
-                <th>Stop</th>
-              </thead>
-
-              <tr id="no_stop">
-                <td class="center" colspan="1000">None Selected</td>
-              </tr>
-            </table>
-
-            <label for="stops">Add Stop</label>
-            <select id="stop" class="twelve columns">
-              <option value="1">mouth</option>
-              <option value="2">wide</option>
-              <option value="3">hoe-pen</option>
-            </select>
-            <a id="addStop" class="twelve columns button">add stop</a>
-
+          <form action="editDescription.php" method="post">
+            <label>
+              <?php
+              require("db_connection.php");
+              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
+              echo $data["place_name"];
+              ?>
+            </label>
+            <textarea name="description" class="twelve columns"><?php
+              require("db_connection.php");
+              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = 3")->fetchAll(PDO::FETCH_ASSOC)[0];
+              echo $data["description"];
+              ?></textarea>
             <button class="button-primary" id="submit"></button>
           </form>
         </div>

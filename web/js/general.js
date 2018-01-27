@@ -7,6 +7,12 @@ $(document).ready(function(){
    		modalToggle();
    });
 
+   $("#editToggle").click(function (){
+         $("#modalTitle").html("Description");
+         $("#submit").html("Edit");
+         modalToggle();
+   });
+
    $("#close").click(function (){
    		modalToggle();
    });
