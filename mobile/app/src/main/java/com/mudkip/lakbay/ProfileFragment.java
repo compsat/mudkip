@@ -27,11 +27,35 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        TextView quest = view.findViewById(R.id.quest);
+        quest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) ProfileFragment.this.getActivity()).changeToQuest();
+            }
+        });
+
         TextView settings = view.findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ((MainActivity) ProfileFragment.this.getActivity()).changeToSettings();
+            }
+        });
+
+        TextView stop = view.findViewById(R.id.stop);
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) ProfileFragment.this.getActivity()).changeToStops();
+            }
+        });
+
+        TextView faqs = view.findViewById(R.id.faqs);
+        faqs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) ProfileFragment.this.getActivity()).changeToHelp();
             }
         });
 

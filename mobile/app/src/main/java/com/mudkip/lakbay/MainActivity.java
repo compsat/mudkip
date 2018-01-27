@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
     private MainFragment mMainFragment;
     private ProfileFragment mProfileFragment;
     private SettingsFragment mSettingsFragment;
+    private QuestFragment mQuestFragment;
+    private StopsFragment mStopsFragment;
+    private HelpFragment mHelpFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         mMainFragment = new MainFragment();
         mProfileFragment = new ProfileFragment();
         mSettingsFragment = new SettingsFragment();
+        mQuestFragment = new QuestFragment();
+        mStopsFragment = new StopsFragment();
+        mHelpFragment = new HelpFragment();
 
         mFragmentTransaction = getSupportFragmentManager().beginTransaction();
         mFragmentTransaction.replace(R.id.content, mMainFragment);
@@ -44,6 +50,24 @@ public class MainActivity extends AppCompatActivity {
     public void changeToSettings(){
         mFragmentTransaction = getSupportFragmentManager().beginTransaction();
         mFragmentTransaction.replace(R.id.content, mSettingsFragment);
+        mFragmentTransaction.commit();
+    }
+
+    public void changeToQuest(){
+        mFragmentTransaction = getSupportFragmentManager().beginTransaction();
+        mFragmentTransaction.replace(R.id.content, mQuestFragment);
+        mFragmentTransaction.commit();
+    }
+
+    public void changeToStops(){
+        mFragmentTransaction = getSupportFragmentManager().beginTransaction();
+        mFragmentTransaction.replace(R.id.content, mStopsFragment);
+        mFragmentTransaction.commit();
+    }
+
+    public void changeToHelp(){
+        mFragmentTransaction = getSupportFragmentManager().beginTransaction();
+        mFragmentTransaction.replace(R.id.content, mHelpFragment);
         mFragmentTransaction.commit();
     }
 }
