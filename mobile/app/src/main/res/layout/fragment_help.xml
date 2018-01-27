@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/first"
-            android:layout_width="275dp"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/faqsText"
             android:layout_marginTop="10dp"
@@ -51,7 +51,7 @@
 
         <TextView
             android:id="@+id/firstAnswer"
-            android:layout_width="270dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/first"
             android:layout_marginTop="10dp"
@@ -61,7 +61,7 @@
 
         <TextView
             android:id="@+id/second"
-            android:layout_width="275dp"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/firstAnswer"
             android:layout_marginTop="10dp"
@@ -71,17 +71,17 @@
 
         <TextView
             android:id="@+id/secondAnswer"
-            android:layout_width="270dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/second"
             android:layout_marginTop="10dp"
             android:layout_marginStart="60dp"
-            android:text="By going around and finishing the different goals, you learn about the culture of the city/province you visited. You may also help their local economy by visiting the different local businesses present."
+            android:text="By going around and finishing the different quests, you learn about the culture of the city/province you visited. You may also help their local economy by visiting the different local businesses present."
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/third"
-            android:layout_width="275dp"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/secondAnswer"
             android:layout_marginTop="10dp"
@@ -91,7 +91,7 @@
 
         <TextView
             android:id="@+id/thirdAnswer"
-            android:layout_width="270dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/third"
             android:layout_marginTop="10dp"
@@ -100,6 +100,4 @@
             android:textSize="15sp" />
 
     </RelativeLayout>
-
-
 </FrameLayout>
