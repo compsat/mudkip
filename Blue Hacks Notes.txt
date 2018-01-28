@@ -1,0 +1,83 @@
+ideas:
+
+
+ppt/pdf presentation pitch deadline: 1pm
+github project submission deadline: 12pm 
+
+5min presentation
+
+As Change Catalysts
+	> How can you empower people through your app?
+
+As Strategic Thinkers
+	> What can you implement to solve current problems?
+
+As Culture Shapers
+	> What can you do to cultivate love for the nation?
+
+nation building:
+what's your vision for the nation:
+adjectives:
+inclusive, empowering, sustainable
+spheres:
+economies, governance, communities and culture
+			|inclusive	|empowering	|sustainable
+------------------------+---------------+---------------+----------------
+economic		|		|		|
+------------------------+---------------+---------------+----------------
+governance		|		|		|
+------------------------+---------------+---------------+----------------
+communites & culture	|		|		|
+
+
+3x3 matrix of ^
+
+inclusive economic development: 
+-consistent growth
+-21.6 % poor = "< PhP 60 a day"
+-big disparity betw rich and poor
+-more access to basic commodities
+-participate in economic opportunities
+-ex:    employment(job street, kalibrr, fb group, POEA, trip advisor for utility workers)
+	get business known to others
+
+empowering economic development
+-education: resources
+-health: health records
+-uber for farmers: for transport of goods
+
+sustainable economic development
+-micro-enterprises: sari-sari store app, financial literacy	
+-financial services information: loans from middle level financial institutions (ex. pawn shops) (w/ geolocations, terms, etc)
+-Goc social protection services
+-environmental app
+	-NOAH, PAGASA app
+	-river sensor
+
+inclusive governance
+-genuine and effective participation
+-benefit for all
+-micro-communities opinion polling
+
+empowering governance
+-info on congressmen: attendance, voting
+
+sustainable governance
+
+inclusive communities and cultures
+-society that celebrates diversity
+-language diversity: 200+ languages;
+-app for fiestas, culture
+-app for disabilities
+
+empowering communities and cultures
+-pride in indigenous cultures
+	-tangible & intangible heritage
+	-language
+-hope
+	-volunteer opportunities - Philippines
+	-istorya ng pag-asa
+
+sustainable communities and cultures
+-heritage appreciation/ preservation
+	-igpaw (tour guide app)
