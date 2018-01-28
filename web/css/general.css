@@ -19,6 +19,7 @@ body{
 }
 
 .topnav{
+	text-align: center;
 	position: fixed;
 	top:0;
 	width: 100%;
@@ -32,8 +33,24 @@ body{
 }
 
 .topnav h2{
+	width:130px;
+	display: block;
+	margin:auto;
 	text-align: center;
 	margin-bottom: 0;
+}
+
+.log-out{
+	margin-bottom: 0;
+	position: fixed;
+	top:10px;
+	right:20px;
+	z-index: 3;
+}
+
+.log-out a, .log-out a:hover{
+	color:white;
+	text-decoration: none;
 }
 
 .topnav h2 a, .topnav h2 a:hover{

@@ -58,7 +58,31 @@
           <th>Visit Count</th>
         </thead>
         <tr>
-          <td class="center" colspan="1000">None</td>
+          <?php 
+            require("db_connection.php");
+            require("functions.php");
+
+            $city_id = intval($_SESSION['city']);
+                $stops = $db->query("SELECT stop_ID, points FROM stop WHERE city_ID=$city_id")->fetchAll(PDO::FETCH_ASSOC);
+                if($stops){
+                  foreach($stops as $stop){
+                    $stop_id = intval($stop['stop_ID']);
+                    $points = intval($stop['points']);
+                    $stop_data = $db->query("SELECT place_name, latitude, longitude FROM place WHERE place_ID=$stop_id")->fetchAll(PDO::FETCH_ASSOC)[0];
+                    $stop_loc = $stop_data['latitude'] . ", " . $stop_data['longitude'];
+                    $stop_name = $stop_data['place_name'];
+                    $vCount = $db->query("SELECT COUNT(*) FROM visited_stop WHERE stop_ID=$stop_id")->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
+                    echo "<tr>";
+                    echo "<td>$stop_name</td>";
+                    echo "<td>$stop_loc</td>";
+                    echo "<td>$points</td>";
+                    echo "<td>$vCount</td>";
+                    echo "</tr>";
+                  }
+                }else{
+                  echo "<td class='center' colspan='1000'>None</td>";
+                }
+          ?>
         </tr>
       </table>
     </div>
@@ -71,7 +95,6 @@
           <h2 id="close" class="close-btn u-pull-right">&times;</h2>
           <h3 id="modalTitle">Title</h3>
           <form action="newStop.php" method="post">
-            <input type="hidden" name="cityID">
             <label for="stop_name">Stop Name</label>
             <input type="text" name="stop_name" class="twelve columns">
 
@@ -85,7 +108,7 @@
               </div>           
 
               <div class="six columns">
-                <label for="Longitude" class="alt-label">Longitude</label>
+                <label for="longitude" class="alt-label">Longitude</label>
                 <input type="number" name="longitude" class="twelve columns" step="0.000001">
               </div>
             </div>

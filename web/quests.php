@@ -59,13 +59,28 @@
       <table class="twelve columns">
         <thead>
           <th>Name</th>
-          <th>Stops</th>
+          <th>Points</th>
           <th>No. Done</th>
           <th>No. of Ongoing</th>
         </thead>
-        <tr>
-          <td class="center" colspan="1000">None</td>
-        </tr>
+        <?php 
+          $city_id = intval($_SESSION['city']);
+
+          $quests = $db->query("SELECT quest_name, points FROM quest WHERE city_ID=$city_id")->fetchAll(PDO::FETCH_ASSOC);
+          if($quests){
+            foreach($quests as $quest){
+              $name = $quest['quest_name'];
+              $pts = $quest['points'];
+              echo "<tr>";
+              echo "<td>$name</td>";
+              echo "<td>$pts</td>";
+              echo "<td></td>";
+              echo "<td></td>";
+            }
+          }else{
+            echo "<tr><td class='center' colspan='1000'>None</td></tr>";
+          }
+        ?>
       </table>
     </div>
   </div>
@@ -76,9 +91,9 @@
         <div class="eight columns content padding no_float" style="margin:auto">
           <h2 id="close" class="close-btn u-pull-right">&times;</h2>
           <h3 id="modalTitle">Title</h3>
-          <form>
+          <form action="newQuest.php" method="post" id="questForm">
             <label for="stop_name">Quest Name</label>
-            <input type="text" name="stop_name" class="twelve columns">
+            <input type="text" name="quest_name" class="twelve columns">
 
             <table id="quest_stops" class="twelve columns">
               <thead>

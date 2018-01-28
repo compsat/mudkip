@@ -1,8 +1,9 @@
 <?php
 
 require("db_connection.php");
+require('functions.php');
 
-$cityID = $_REQUEST['cityID'];
+$cityID = intval($_SESSION['city']);
 $name = $_REQUEST['stop_name'];
 $points = $_REQUEST['stop_points'];
 $latitude = $_REQUEST['latitude'];
@@ -15,11 +16,9 @@ try{
 	$result = $db->prepare($placeInsert)->execute();
 }catch(Exception $e){}
 
-$placeID = $db->query("select place_ID from place order by place_id desc limit 1")->fetchAll(PDO::FETCH_ASSOC)[0]['place_ID'];
+$placeID = $db->query("SELECT LAST_INSERT_ID()")->fetchAll(PDO::FETCH_ASSOC)[0]["LAST_INSERT_ID()"];
 
-//$stopInsert = "INSERT INTO stop (stop_ID, city_ID, points) VALUES ('$placeID', '$cityID', '$points')";
-
-$stopInsert = "INSERT INTO stop (stop_ID, city_ID, points) VALUES ('$placeID', 1, '$points')";
+$stopInsert = "INSERT INTO stop (stop_ID, city_ID, points) VALUES ('$placeID', $cityID, '$points')";
 
 try{
 	$result = $db->prepare($stopInsert)->execute();

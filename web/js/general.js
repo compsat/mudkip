@@ -26,6 +26,9 @@ $(document).ready(function(){
 	   		var row ="<tr id='stop" + $("#stop").val() + "'><td>" + $("#stop").val() + "</td>";
 	   			row += "<td>" + $("#stop option:selected").html() + "</td></tr>"; 
 	   		$("#quest_stops").append(row);
+
+            var input = "<input type='hidden' name='stops[]' value='" + $("#stop").val() + "'>";
+            $("#questForm").append(input);
    		}
    		
    	});
