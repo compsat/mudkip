@@ -66,16 +66,19 @@
         <?php 
           $city_id = intval($_SESSION['city']);
 
-          $quests = $db->query("SELECT quest_name, points FROM quest WHERE city_ID=$city_id")->fetchAll(PDO::FETCH_ASSOC);
+          $quests = $db->query("SELECT quest_id, quest_name, points FROM quest WHERE city_ID=$city_id")->fetchAll(PDO::FETCH_ASSOC);
           if($quests){
             foreach($quests as $quest){
+              $questID = intval($quest['quest_id']);
+              $finQuest = $db->query("SELECT COUNT(*) FROM finished_quest WHERE quest_id=$questID")->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
+              $ogQuest = $db->query("SELECT COUNT(*) FROM ongoing_quest WHERE quest_id=$questID")->fetchAll(PDO::FETCH_ASSOC)[0]["COUNT(*)"];
               $name = $quest['quest_name'];
               $pts = $quest['points'];
               echo "<tr>";
               echo "<td>$name</td>";
               echo "<td>$pts</td>";
-              echo "<td></td>";
-              echo "<td></td>";
+              echo "<td>$finQuest</td>";
+              echo "<td>$ogQuest</td>";
             }
           }else{
             echo "<tr><td class='center' colspan='1000'>None</td></tr>";
