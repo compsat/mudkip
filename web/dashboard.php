@@ -21,35 +21,64 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/general.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+
+  <!-- PHP Functions
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <?php
+    require("functions.php");
+  ?>
 </head>
 <body>
 
+  <!-- Top Navigation
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <?php require('topnav.php'); ?>
+
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="col-md-12" align="center">
+  <div class="container content-margin">
+    <div class="row">
+      <div class="twelve columns header">
         <h1>Dashboard</h1>
-        <hr>
-        <h4>Edit Description</h4>
-        <form>
-          <div>
-          <textarea></textarea>
-          </div>
-          <div>
-          <button type="submit" class="btn btn-primary btn-test">Submit</button>
-          </div>
-        </form>
-        <hr>
-        <h4>Add quest</h2>
-        <hr>
-        <h4>Add stop</h2>
       </div>
     </div>
+    <div class="row content">
+        <div class="twelve columns padding">
+          <div>
+            <h3>Profile</h3>
+            <?php
+              require("db_connection.php");
+              $cityID = intval($_SESSION['city']);
+              $data = $db->query("SELECT place_name, description FROM place WHERE place_ID = $cityID")->fetchAll(PDO::FETCH_ASSOC)[0];
+              echo "<h5>" . $data["place_name"] . "</h5>";
+              echo "<p>" . $data["description"] . "</p>";
+            ?>
+            <form action="description.php">
+              <button type="submit">Edit</button>
+            </form>
+          </div>
+
+          <div>
+            <h3><a href="quests.php">Quests</a></h3>
+            <button>Add</button>
+          </div>
+
+          <div>
+            <h3><a href="stops.php">Stops</a></h3>
+            <form action="newStop.php" method="post">
+              <button type="submit">Add</button>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>

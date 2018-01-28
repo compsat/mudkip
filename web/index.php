@@ -21,25 +21,27 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/general.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
-
 </head>
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-    <div class="col-md-12" align="center">
+    <div class="row" align="center">
+      <div class="eight columns no_float">
         <h1>Lakbay</h1>
         <hr>
-        <form action="dashboard.html" method="post" class="form-horizontal">
-          <input type="text" name="username" class="form-control form-textbox" placeholder="Username">
-          <input type="text" name="password" class="form-control form-textbox" placeholder="Password">
-          <button type="submit" class="btn btn-primary btn-test">Submit</button>
+        <form action="login.php" method="post">
+          <input type="text" name="username" class="twelve columns" placeholder="Username">
+          <input type="password" name="password" class="twelve columns" placeholder="Password">
+          <button type="submit" class="button-primary u-pull-right">Log In</button>
         </form>
+      </div>
       </div>
     </div>
 <!-- End Document

@@ -1,0 +1,99 @@
+body{
+	background-color: #f0f0f0;
+}
+
+.no_float{
+	float: none;
+}
+
+.content-margin{
+	margin-top:52.5px;
+}
+
+.center{
+	text-align: center;
+}
+
+.padding{
+	padding:20px;
+}
+
+.topnav{
+	text-align: center;
+	position: fixed;
+	top:0;
+	width: 100%;
+	background-color: black;
+	color:white;
+	z-index: 2;
+}
+
+.content{
+	background-color: white;
+}
+
+.topnav h2{
+	width:130px;
+	display: block;
+	margin:auto;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.log-out{
+	margin-bottom: 0;
+	position: fixed;
+	top:10px;
+	right:20px;
+	z-index: 3;
+}
+
+.log-out a, .log-out a:hover{
+	color:white;
+	text-decoration: none;
+}
+
+.topnav h2 a, .topnav h2 a:hover{
+	color:white;
+	text-decoration: none;
+}
+
+.header{
+	background-color: #33C3F0;
+	color: white;
+	padding: 40px 20px 20px 20px;
+} 
+
+h3 a{
+	text-decoration: none;
+	color:black;
+}
+
+.with-table{
+	overflow-x: scroll;
+}
+
+.modal{
+	display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+    overflow-y: scroll;
+}
+
+.modal-content{
+	margin-top: 52.5px;
+}
+
+.close-btn{
+	cursor:pointer;
+}
+
+.alt-label{
+	display: inline;
+}
