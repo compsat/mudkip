@@ -1,6 +1,8 @@
 package com.mudkip.lakbay;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,11 +50,17 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHol
             nameTextView = itemView.findViewById(R.id.nameTextView);
             numStopsTextView = itemView.findViewById(R.id.numStopsTextView);
             tagsTextView = itemView.findViewById(R.id.tagsTextView);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-
+            Intent intent = new Intent(mContext, QuestActiveActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt(QuestActiveActivity.BUNDLE_KEY, mQuests[getAdapterPosition()].getId());
+            intent.putExtras(bundle);
+            mContext.startActivity(intent);
         }
 
         public void setView(Quest quest) {

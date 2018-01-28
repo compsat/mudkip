@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".StopActiveActivity">
         </activity>
-        <activity android:name=".QuestAcitveActivity">
+        <activity android:name=".QuestActiveActivity">
         </activity>
     </application>
 
