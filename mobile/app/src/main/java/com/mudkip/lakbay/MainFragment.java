@@ -32,7 +32,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainFragment extends Fragment {
-    public static final String DOMAIN = "http://10.100.65.41/";
+
     private City[] mCities;
     private Stop[] mStops;
     private Quest[] mQuests;
@@ -190,7 +190,7 @@ public class MainFragment extends Fragment {
 
 
     private void cityOverview() {
-        final String dataUrl = DOMAIN + "city_overview.php";
+        final String dataUrl = MainActivity.DOMAIN + "city_overview.php";
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -237,7 +237,7 @@ public class MainFragment extends Fragment {
     }
 
     private void getAndShowStops() {
-        final String url = DOMAIN + "stops_in_city.php";
+        final String url = MainActivity.DOMAIN + "stops_in_city.php";
 
         final OkHttpClient client = new OkHttpClient();
         FormBody.Builder formBuilder = new FormBody.Builder()
@@ -299,7 +299,7 @@ public class MainFragment extends Fragment {
     }
 
     private void getAndShowQuests() {
-        final String url = DOMAIN + "quests_in_city.php";
+        final String url = MainActivity.DOMAIN + "quests_in_city.php";
 
         final OkHttpClient client = new OkHttpClient();
         FormBody.Builder formBuilder = new FormBody.Builder()

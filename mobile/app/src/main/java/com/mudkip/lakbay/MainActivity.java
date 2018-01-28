@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String DOMAIN = "http://10.100.65.41/";
+    public static final int USER_KEY = 1;
 
     private FragmentTransaction mFragmentTransaction;
     private MainFragment mMainFragment;

@@ -1,6 +1,8 @@
 package com.mudkip.lakbay;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -48,11 +50,17 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.StopViewHolder
 
             nameTextView = itemView.findViewById(R.id.nameTextView);
             distanceTextView = itemView.findViewById(R.id.distanceTextView);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-
+            Intent intent = new Intent(mContext, StopActiveActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt(StopActiveActivity.BUNDLE_KEY, mStops[getAdapterPosition()].getId());
+            intent.putExtras(bundle);
+            mContext.startActivity(intent);
         }
 
         public void setView(Stop stop) {

@@ -21,12 +21,6 @@ public class Quest {
         mTags = tags;
     }
 
-    public Quest(String name, int numStops, ArrayList<String> tags) {
-        mName = name;
-        mNumStops = numStops;
-        mTags = tags;
-    }
-
     public String getName() {
         return mName;
     }
